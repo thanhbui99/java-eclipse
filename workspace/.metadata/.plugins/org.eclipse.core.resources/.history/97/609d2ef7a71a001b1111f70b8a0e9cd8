@@ -1,0 +1,12 @@
+package myPack;
+
+import java.util.*;
+
+public class StudentDAO {
+	public static List<Student> exportStudent() {
+		List<Student> list = new ArrayList<Student>();
+		list.add(new Users("thanh", 2));
+		list.add(new Users("bui", 3));
+		return list;
+	}
+}

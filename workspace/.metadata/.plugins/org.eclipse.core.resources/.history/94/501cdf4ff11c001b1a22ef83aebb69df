@@ -1,0 +1,56 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="BEAN.User"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+<title>History</title>
+</head>
+<body>
+ <%
+        ArrayList<User> userList = new ArrayList<User>();
+        if(session.getAttribute("userList") != null) {
+            userList = (ArrayList<User>) session.getAttribute("userList");
+        }
+    %>
+	<div class="container">
+		<div class="panel panel-primary">
+			<div class="panel-heading">
+				<h2 class="text-center">history user</h2>
+			</div>
+			<div class="panel-body">
+               <table class="table table-bordered">
+                  <tr>
+                     <td>No</td>
+                     <td>Name</td>
+                     <td>Email</td>
+                     <td>Birthday</td>
+                     <td>Address</td>
+                  </tr>
+               <thead>
+               <tbody>
+                  
+               </tbody>
+               </table>
+		</div>
+	</div>
+</body>
+</html>

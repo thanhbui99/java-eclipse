@@ -1,0 +1,46 @@
+package controller;
+
+import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import Bean.Users;
+import DAO.LoginDAO;
+
+@WebServlet("/LoginServlet")
+public class LoginServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+	public LoginServlet() {
+		super();
+
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		String name = request.getParameter("username");
+		String pass = request.getParameter("password");
+		Users user = new Users();
+		user.setName(name);
+		user.setPass(pass);
+        boolean kt = LoginDAO.Validate(name, pass);
+        if(kt){
+        	String msg1 = name +"Thanh";
+        	request.setAttribute("name", msg1);
+        	RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/View/LoginSuccess.jsp");
+        	rd.forward(request, response);
+        }
+        else{
+        	String msg1 = "Login fail";
+        	request.setAttribute("name", msg1);
+        	RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/View/Login.jsp");
+        	rd.forward(request, response);
+        }
+	}
+
+}

@@ -1,0 +1,8 @@
+package myPack;
+import java.util.*;
+public class StudentDAO {
+   public static List<Student> exportStudent(){
+	   List<Student> list = new ArrayList<Student>();
+	   return list;
+   }
+}

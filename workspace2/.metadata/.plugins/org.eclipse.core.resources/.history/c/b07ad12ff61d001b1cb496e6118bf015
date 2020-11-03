@@ -1,0 +1,6 @@
+package com.laptrinhjavaweb.web;
+import javax.servlet.http.HttpServlet;
+
+public class HomeController extends HttpServlet{
+
+}
